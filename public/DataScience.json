@@ -1,0 +1,154 @@
+{
+    "Introduction to Data Science":
+    {"_id":1,
+        "title":"Introduction to Data Science",
+        "author":"Metis",
+        "rating":4,
+        "desc":"description for Metis course",
+        "offeredBy":"Kurukshetra University",
+        "total":50,
+        "languages":"English, Hindi",
+        "instructor":[
+            {
+                "name":"Lalit Kumar",
+                "profession":"Software developer",
+                "desc":"Fouder of terrace",
+                "image":""
+            }
+        ],
+        "SkillsGain":"Logistic Regression, Artificial Neural, NetworkMachine Learning (ML), AlgorithmsMachine Learning",
+        "about":"Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition, effective web search, and a vastly improved understanding of the human genome. Machine learning is so pervasive today that you probably use it dozens of times a day without knowing it. Many researchers also think it is the best way to make progress towards human-level AI. In this class, you will learn about the most effective machine learning techniques, and gain practice implementing them and getting them to work for yourself. More importantly, you'll learn about not only the theoretical underpinnings of learning, but also gain the practical know-how needed to quickly and powerfully apply these techniques to new problems. Finally, you'll learn about some of Silicon Valley's best practices in innovation as it pertains to machine learning and AI.        This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition. Topics include: (i) Supervised learning (parametric/non-parametric algorithms, support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI). The course will also draw from numerous case studies and applications, so that you'll also learn how to apply learning algorithms to building smart robots (perception, control), text understanding (web search, anti-spam), computer vision, medical informatics, audio, database mining, and other areas.",
+        "Syllabus":[
+            {
+                "title":"Introduction",
+                "description":"Welcome to Machine Learning! In this module, we introduce the core idea of teaching a computer to learn concepts using data—without being explicitly programmed. The Course Wiki is under construction. Please visit the resources tab for the most complete and up-to-date information.",
+                "Week":1,
+                "length":5,
+                "weekWise":[
+                    {
+                        "title":"week 1 is here you will learn nothing",
+                        "length":40
+                    },
+                    {
+                        "title":"week 1 is here you will learn nothing",
+                        "length":40
+                    },
+                    {
+                        "title":"week 1 is here you will learn nothing",
+                        "length":40
+                    },
+                    {
+                        "title":"week 1 is here you will learn nothing",
+                        "length":40
+                    }
+                ]
+            },
+            {
+                "title":"Linear Regression with Multiple Variables",
+                "description":"What if your input has more than one value? In this module, we show how linear regression can be extended to accommodate multiple input features. We also discuss best practices for implementing linear regression.",
+                "Week":2,
+                "length":3,
+                "weekWise":[
+                    {
+                        "title":"week 2 is here you will learn nothing",
+                        "length":30
+                    }
+                ]
+            },
+            {
+                "title":"Octave/Matlab Tutorial",
+                "description":"This course includes programming assignments designed to help you understand how to implement the learning algorithms in practice. To complete the programming assignments, you will need to use Octave or MATLAB. This module introduces Octave/Matlab and shows you how to submit an assignment.",
+                "Week":3,
+                "length":4,
+                "weekWise":[
+                    {
+                        "title":"week 3 is here you will learn nothing",
+                        "length":12
+                    }
+                ]
+            },
+            {
+                "title":"Logistic Regression",
+                "description":"Logistic regression is a method for classifying data into discrete outcomes. For example, we might use logistic regression to classify an email as spam or not spam. In this module, we introduce the notion of classification, the cost function for logistic regression, and the application of logistic regression to multi-class classification.",
+                "Week":4,
+                "length":5,
+                "weekWise":[
+                    {
+                        "title":"week 4 is here you will learn nothing",
+                        "length":5
+                    }
+                ]
+            }
+        ]
+    },
+
+    "Data Science MicroMasters":{
+        "_id":2,
+        "title":"Data Science MicroMasters",
+        "author":"UC San Diego @ edX.",
+        "rating":4,
+        "desc":"description for UC San Diego course",
+        "offeredBy":"Govt. Polytechnic Manesar",
+        "languages":"English, Hindi",
+        "instructor":[
+            {
+                "name":"Lalit Kumar",
+                "profession":"Software developer",
+                "desc":"Fouder of terrace",
+                "image":""
+            }
+        ],
+        "SkillsGain":"Logistic Regression, Artificial Neural, NetworkMachine Learning (ML), AlgorithmsMachine Learning",
+        "about":"Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition, effective web search, and a vastly improved understanding of the human genome. Machine learning is so pervasive today that you probably use it dozens of times a day without knowing it. Many researchers also think it is the best way to make progress towards human-level AI. In this class, you will learn about the most effective machine learning techniques, and gain practice implementing them and getting them to work for yourself. More importantly, you'll learn about not only the theoretical underpinnings of learning, but also gain the practical know-how needed to quickly and powerfully apply these techniques to new problems. Finally, you'll learn about some of Silicon Valley's best practices in innovation as it pertains to machine learning and AI.        This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition. Topics include: (i) Supervised learning (parametric/non-parametric algorithms, support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI). The course will also draw from numerous case studies and applications, so that you'll also learn how to apply learning algorithms to building smart robots (perception, control), text understanding (web search, anti-spam), computer vision, medical informatics, audio, database mining, and other areas.",
+        "Syllabus":[
+            {
+                "title":"Introduction",
+                "description":"Welcome to Machine Learning! In this module, we introduce the core idea of teaching a computer to learn concepts using data—without being explicitly programmed. The Course Wiki is under construction. Please visit the resources tab for the most complete and up-to-date information.",
+                "Week":1,
+                "length":5,
+                "weekWise":[
+                    {
+                        "title":"week 1 is here you will learn nothing",
+                        "length":40
+                    }
+                ]
+            },
+            {
+                "title":"Linear Regression with Multiple Variables",
+                "description":"What if your input has more than one value? In this module, we show how linear regression can be extended to accommodate multiple input features. We also discuss best practices for implementing linear regression.",
+                "Week":2,
+                "length":3,
+                "weekWise":[
+                    {
+                        "title":"week 2 is here you will learn nothing",
+                        "length":40
+                    }
+                ]
+            },
+            {
+                "title":"Octave/Matlab Tutorial",
+                "description":"This course includes programming assignments designed to help you understand how to implement the learning algorithms in practice. To complete the programming assignments, you will need to use Octave or MATLAB. This module introduces Octave/Matlab and shows you how to submit an assignment.",
+                "Week":3,
+                "length":4,
+                "weekWise":[
+                    {
+                        "title":"week 3 is here you will learn nothing",
+                        "length":44
+                    }
+                ]
+            },
+            {
+                "title":"Logistic Regression",
+                "description":"Logistic regression is a method for classifying data into discrete outcomes. For example, we might use logistic regression to classify an email as spam or not spam. In this module, we introduce the notion of classification, the cost function for logistic regression, and the application of logistic regression to multi-class classification.",
+                "Week":4,
+                "length":5,
+                "weekWise":[
+                    {
+                        "title":"week 4 is here you will learn nothing",
+                        "length":30
+                    }
+                ]
+            }
+        ]
+      }
+}

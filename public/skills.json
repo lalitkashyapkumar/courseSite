@@ -1,0 +1,106 @@
+{
+    "Data Science": [
+      {
+        "_id":1,
+        "title":"Introduction to Data Science",
+        "author":"Metis",
+        "rating":4,
+        "desc":"description for Metis course"
+      },
+      {
+        "_id":2,
+        "title":"Data Science MicroMasters",
+        "author":"UC San Diego @ edX.",
+        "rating":4,
+        "desc":"description for UC San Diego course"
+      },
+      {
+        "_id":3,
+        "title":"Data Science with Python Specialization",
+        "author":"UMich @ Coursera",
+        "rating":4,
+        "desc":"description for Umich course"
+      }
+    ],
+    "Business": [
+      {
+        "_id":5,
+        "title":"Introduction to Buisness",
+        "author":"Metis Business",
+        "rating":4,
+        "desc":"description for Metis Business course"
+      },
+      {
+        "_id":6,
+        "title":"Business MicroMasters ",
+        "author":"UC San Diego @ edX.",
+        "rating":4,
+        "desc":"description for Business"
+      },
+      {
+        "_id":7,
+        "title":"Business Specialization",
+        "author":"UMich @ Coursera",
+        "rating":4,
+        "desc":"description for Umich course"
+      }
+    ],
+    "Personal Development": [
+      {
+        "_id":8,
+        "title":"Personal Development Specialization",
+        "author":"JHU @ Coursera",
+        "rating":4,
+        "desc":"description for jhu course"
+      },
+      {
+        "_id":9,
+        "title":"Introduction to Personal Development",
+        "author":"Metis",
+        "rating":4,
+        "desc":"description for Metis course"
+      }
+    ],
+    "Computer Science": [{
+      "_id":12,
+      "title":"Computer Science Specialization",
+      "author":"JHU @ Coursera",
+      "rating":4,
+      "desc":"description for jhu course"
+    },
+    {
+      "_id":13,
+      "title":"Introduction to Computer Science",
+      "author":"Metis",
+      "rating":4,
+      "desc":"description for Metis course"
+    },
+    {
+      "_id":14,
+      "title":"Computer Science MicroMasters ",
+      "author":"UC San Diego @ edX.",
+      "rating":4,
+      "desc":"description for UC San Diego course"
+    }],
+    "Information Technology": [{
+      "_id":16,
+      "title":"Information Technology Specialization",
+      "author":"JHU @ Coursera",
+      "rating":4,
+      "desc":"description for jhu course"
+    },
+    {
+      "_id":17,
+      "title":"Introduction to Information Technology",
+      "author":"Metis",
+      "rating":4,
+      "desc":"description for Metis course"
+    },
+    {
+      "_id":18,
+      "title":"Information Technology MicroMasters ",
+      "author":"UC San Diego @ edX.",
+      "rating":4,
+      "desc":"description for UC San Diego course"
+    }]
+  }
