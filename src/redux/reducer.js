@@ -1,8 +1,9 @@
-import { GET_SKILLS_DATA, GET_SYLLABUS_DATA } from "./types";
+import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN } from "./types";
 
 const initialState = {
     skills:{},
-    syllabus:{}
+    syllabus:{},
+    user:{}
 }
 
 const rootReducer = (state=initialState, actions)=>{
@@ -17,7 +18,14 @@ const rootReducer = (state=initialState, actions)=>{
             return {
                 ...state,
                 syllabus:actions.value
-            }    
+            }
+            
+        case GET_LOGIN:
+            console.log(actions.user);
+        return {
+            ...state,
+            user:actions.user
+        }
         default:
             return state;
     }

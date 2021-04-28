@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import Rating from "react-rating";
+import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {object } from "prop-types";
+
 import { bindActionCreators } from "redux";
 import { actions } from "../../redux/actions";
 
@@ -16,7 +19,6 @@ const mapDispatchToProps = (dispatch)=>{
         actionsOperation : bindActionCreators(actions, dispatch)
     }
 }
-
 
 const WeekendSylby = ({week})=>{
     // console.log(week);
@@ -64,24 +66,23 @@ const Syllabus = ({sylb})=>{
 
 const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabus}}) =>{
     useEffect(()=>{
-        fetch('../DataScience.json')
-        .then((result)=>{
-        
-        return result.json()}
-        )
-        .then((data)=>getSkillsSyllabus(data))
-        .catch((e)=>console.log('error form user'+e));
+        getSkillsSyllabus(SyllabusId)
     },[]);
+
     if(Object.keys(syllabus).length===0 ){
         return (
-            <>
-            <h2>Loading</h2><hr/>
-            {/* <Card/> */}
-            </>
+            <div className="row justify-content-center">
+                <Loader
+                    type="Circles"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                />
+            </div>
         );
-    }else{        // console.log(syllabus[SyllabusId]["SkillsGain"]);
+    }else{        
         
-        const skillsGain =  syllabus[SyllabusId]["SkillsGain"].split(", ").map((data, i)=>{
+        const skillsGain =  syllabus["SkillsGain"].split(", ").map((data, i)=>{
             return(<span key={i} className="badge badge-pill badge-light">{data}</span>)
         });
 
@@ -92,30 +93,32 @@ const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabu
                 <div className="row">
                     <div className="col-12 col-md-6 mb-5">
                         <div className="mt-4 mb-4">
-                            <h2 className="mt-4 mb-3"><b>{syllabus[SyllabusId]["title"]}</b></h2>
-                            <span className="fa fa-star-o" data-rating="1"></span>
-                            <span className="fa fa-star-o" data-rating="2"></span>
-                            <span className="fa fa-star-o" data-rating="3"></span>
-                            <span className="fa fa-star-o" data-rating="4"></span>
-                            <span className="fa fa-star-o" data-rating="5"></span>
+                            <h2 className="mt-4 mb-3"><b>{syllabus["title"]}</b></h2>
+                            <Rating
+                                emptySymbol="fa fa-star-o star"
+                                fullSymbol="fa fa-star star"
+                                initialRating={syllabus["rating"]}
+                                readonly={true}
+                                >
+                            </Rating>
                         </div>
                         <div className="row mb-4">
                             <img src="/images/instructor.jpeg" alt="instructor" width="60rem" height="60rem" style={{clipPath: 'circle(50% at 50% 50%)'}}/> 
                             <div className="ml-3">
-                            <h5>{syllabus[SyllabusId]["instructor"][0]["name"]}</h5>
-                            {syllabus[SyllabusId]["instructor"][0]["profession"]}
+                            <h5>{syllabus["instructor"][0]["name"]}</h5>
+                            {syllabus["instructor"][0]["profession"]}
                             </div>
                         </div>
                         <div>
-                            <button className="btn bg-primary text-white mt-2 mb-2">
+                            <Link to={`/courseList/${SyllabusId}/introduction`} className="btn bg-primary text-white mt-2 mb-2">
                                 Enroll for free
-                            </button>
+                            </Link>
                         </div>
                         
                     </div>
                     <div className="col-12 col-md-6 mb-4 mt-5">
                         <h4>Offered by:</h4>
-                        <h2>{syllabus[SyllabusId]["offeredBy"]}</h2>
+                        <h2>{syllabus["offeredBy"]}</h2>
                     </div>
                 </div>
             </div>
@@ -145,7 +148,7 @@ const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabu
                     <div>
                     <h2>About this Course</h2>
                     <p>
-                        {syllabus[SyllabusId]["about"]}
+                        {syllabus["about"]}
                     </p>
                     </div>
                     <div className="card">
@@ -160,7 +163,7 @@ const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabu
                 
                 <div className="col-12 col-md-8">
                 <h2><b>Syllabus</b></h2>
-                    <Syllabus sylb={syllabus[SyllabusId]["Syllabus"]}/>
+                    <Syllabus sylb={syllabus["Syllabus"]}/>
                 </div>
             </div>
         </div>

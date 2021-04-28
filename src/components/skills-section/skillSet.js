@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {object } from "prop-types";
+import Rating from "react-rating";
+import Loader from "react-loader-spinner";
 import { bindActionCreators } from "redux";
 import { actions } from "../../redux/actions";
 
@@ -24,16 +26,19 @@ const Card = ({skill: {title, author, rating, desc, _id}})=>{
             <img className="card-img-top" src="images/buisness.jpg" alt="buisness"/>
             <div className="card-body">
                 <h3><b>{title}</b></h3>
-                <span className="fa fa-star-o" data-rating="1"></span>
-                <span className="fa fa-star-o" data-rating="2"></span>
-                <span className="fa fa-star-o" data-rating="3"></span>
-                <span className="fa fa-star-o" data-rating="4"></span>
-                <span className="fa fa-star-o" data-rating="5"></span>
+                <Rating
+                    emptySymbol="fa fa-star-o star"
+                    fullSymbol="fa fa-star star"
+                    initialRating={rating}
+                    readonly={true}
+                 >
+
+                </Rating>
                 <hr className="mt-0 mb-0"/>
                 <h5>{author}</h5>
                 <p>{desc}</p>
                 
-            <Link to={`/courseList/${title}`} className="btn text-white mt-2">Read More</Link>
+            <Link to={`/courseList/${_id}`} className="btn text-white mt-2">Read More</Link>
             </div>
         </div>
         
@@ -41,21 +46,19 @@ const Card = ({skill: {title, author, rating, desc, _id}})=>{
 }
 const SkillSet = ({skills, actionsOperation:{getSkillsData}})=> {
     useEffect(()=>{
-        fetch('skills.json')
-        .then((res)=>{
-            // console.log(res)
-            return res.json()
-        })
-        .then((data)=>getSkillsData(data))
-        .catch(()=>console.log('error'));
+        getSkillsData()
     },[]);
 
     if(Object.keys(skills).length===0){
         return (
-            <>
-            <h2>Loading</h2><hr/>
-            {/* <Card/> */}
-            </>
+            <div className="row justify-content-center">
+                <Loader
+                    type="Circles"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                />
+            </div>
         );
     }
     else{
@@ -82,8 +85,7 @@ const SkillSet = ({skills, actionsOperation:{getSkillsData}})=> {
             )
             
         ));
-            
-            
+
         return (
             <div className="container">
                 <div className="row">

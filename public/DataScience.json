@@ -27,19 +27,23 @@
                 "weekWise":[
                     {
                         "title":"week 1 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     },
                     {
                         "title":"week 1 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     },
                     {
                         "title":"week 1 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     },
                     {
                         "title":"week 1 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -51,7 +55,8 @@
                 "weekWise":[
                     {
                         "title":"week 2 is here you will learn nothing",
-                        "length":30
+                        "length":30,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -63,7 +68,8 @@
                 "weekWise":[
                     {
                         "title":"week 3 is here you will learn nothing",
-                        "length":12
+                        "length":12,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -75,7 +81,8 @@
                 "weekWise":[
                     {
                         "title":"week 4 is here you will learn nothing",
-                        "length":5
+                        "length":5,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             }
@@ -109,7 +116,8 @@
                 "weekWise":[
                     {
                         "title":"week 1 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -121,7 +129,8 @@
                 "weekWise":[
                     {
                         "title":"week 2 is here you will learn nothing",
-                        "length":40
+                        "length":40,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -133,7 +142,8 @@
                 "weekWise":[
                     {
                         "title":"week 3 is here you will learn nothing",
-                        "length":44
+                        "length":44,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             },
@@ -145,7 +155,8 @@
                 "weekWise":[
                     {
                         "title":"week 4 is here you will learn nothing",
-                        "length":30
+                        "length":30,
+                        "url":"/videos/mov_bbb.mp4"
                     }
                 ]
             }

@@ -1,7 +1,20 @@
-import Ract from "react";
+import React, {useState} from "react";
+import {connect} from "react-redux";
+import { bindActionCreators } from "redux";
+import { actions } from "../../redux/actions";
 
-const LogIn = ()=>{
-    return(<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+      actionsOperation : bindActionCreators(actions, dispatch)
+  }
+}
+
+const LogIn = ({actionsOperation:{login}})=>{
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
+
+    return(<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
@@ -15,19 +28,19 @@ const LogIn = ()=>{
             <div className="input-group-prepend">
                 <span className="input-group-text" id="basic-addon1">Email</span>
             </div>
-            <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+            <input value={user} onChange={(event)=>{setUser(event.target.value)}} type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
         </div>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text" id="basic-addon1">Password</span>
             </div>
-            <input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
+            <input value={pass} onChange={(event)=>{setPass(event.target.value)}}type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
         </div>
         </div>
         <div className="modal-footer">
             <a href="#som">Create account</a>
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary">Save changes</button>
+            <button onClick={()=>{login({user, pass}); setPass(""); setUser("");}} type="button" className="btn btn-primary" data-dismiss="modal">Login</button>
         </div>
       </div>
     </div>
@@ -35,4 +48,4 @@ const LogIn = ()=>{
   )
 }
 
-export default LogIn;
+export default connect(null, mapDispatchToProps)(LogIn);
