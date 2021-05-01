@@ -1,7 +1,61 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actions } from "../../redux/actions";
+import Loader from "react-loader-spinner";
+const mapStateToProps = (state) =>{
+    return {
+        promotion : state.promotion
+    }
+}
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        operations : bindActionCreators(actions, dispatch)
+    }
+}
+const PromotionCard = ({data}) =>{
+    // console.log(data);
+    return (data.map((details, index)=>{
+        
+        return (
+        <div key={index} className={(index!==0) ?
+            "col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block": 
+            "col-10 col-sm-8 col-lg-4 col-md-6"} 
+            
+            style={{ marginLeft:'auto', marginRight: 'auto'}} >
+            
+            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
+            <div className="card-body text-center">
+                <h3><b>{details.name}</b></h3>
+                <p className="mb-0">{details.profession}</p>
+                <p className="mt-0">
+                    {details.location}
+                </p>
+                <p>
+                    {details.description}
+                </p>
+            </div>
+        </div>)
+    }))
+}
+const Home=({promotion, operations:{getPromotion}})=>{
+    useEffect(()=>getPromotion(),[]);
 
-const Home=()=>(
-    <div>
+    if(Object.keys(promotion).length===0){
+       return(
+        <div className="row justify-content-center">
+            <Loader
+                type="Circles"
+                color="#00BFFF"
+                height={100}
+                width={100}
+            />
+        </div>
+    );
+    }
+    else
+    return (
+        <div>
         <div className="col-12">
             <div className="jumbotron">
                 <div className="container ">
@@ -50,38 +104,8 @@ const Home=()=>(
                 <div className="col-12 carousel-inner ">
                     <div className="carousel-item active">
                         <div className="row">
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
+                        
+                        <PromotionCard data={promotion.slide1} />
 
                         </div>
                     </div>
@@ -89,39 +113,7 @@ const Home=()=>(
                     {/* second slide */}
                     <div className="carousel-item">
                         <div className="row">
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit </b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit </b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
+                            <PromotionCard data={promotion.slide1} />
                         </div>
                     </div>
 
@@ -129,39 +121,7 @@ const Home=()=>(
 
                     <div className="carousel-item">
                         <div className="row">
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="col-10 col-sm-8 col-lg-4 col-md-6 d-none d-lg-block d-xl-block" style={{ marginLeft:'auto', marginRight: 'auto'}} >
-                            <img className="card-img-top" src="images/buisness.jpg" alt="buisness" style={{clipPath: 'circle(35% at 50% 50%)'}}/>
-                            <div className="card-body text-center">
-                                <h3><b>Lalit Kumar</b></h3>
-                                <p>Student at UIET, KUK</p>
-                                <p>
-                                "The knowledge I gained through the Machine Learning and Deep Learning courses helped me land an internship."
-                                </p>
-                            </div>
-                        </div>
-
+                            <PromotionCard data={promotion.slide1} />
                         </div>
                     </div>
 
@@ -182,5 +142,6 @@ const Home=()=>(
             <br/>
         </div>
     </div>
-);
- export default Home;
+    )
+}
+ export default connect(mapStateToProps, mapDispatchToProps)(Home);

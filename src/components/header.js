@@ -27,13 +27,13 @@ const Header = ({user, actionsOpr:{logOut}})=>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/'><span className="fa fa-home fa-lg"></span>Home</Link>
+                            <Link  className="nav-link active" to='/'><span className="fa fa-home fa-lg"></span>&nbsp;&nbsp;Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/about'><span className="fa fa-info fa-lg"></span>About</Link>
+                            <Link  className="nav-link active" to='/about'><span className="fa fa-info fa-lg"></span>&nbsp;&nbsp;About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/courseList'><span className="fa fa-list fa-lg"></span>Course List</Link>
+                            <Link  className="nav-link active" to='/courseList'><span className="fa fa-list fa-lg"></span>&nbsp;&nbsp;Course List</Link>
                         </li>
                     </ul>
                 </div>

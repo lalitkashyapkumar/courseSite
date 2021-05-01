@@ -1,9 +1,10 @@
-import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN, GET_LOGOUT } from "./types";
+import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN, GET_LOGOUT, GET_PROMOTION } from "./types";
 
 const initialState = {
     skills:{},
     syllabus:{},
-    user:{}
+    user:{},
+    promotion:{}
 }
 
 const rootReducer = (state=initialState, actions)=>{
@@ -29,6 +30,11 @@ const rootReducer = (state=initialState, actions)=>{
             return {
                 ...state,
                 user:actions.user
+            }
+        case GET_PROMOTION:
+            return {
+                ...state,
+                promotion:actions.promotion
             }
         default:
             return state;

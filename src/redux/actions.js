@@ -1,5 +1,19 @@
-import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN, GET_LOGOUT } from "./types";
+import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN, GET_LOGOUT, GET_PROMOTION } from "./types";
 import {auth} from "./firebase";
+import { url } from "./baseUrl";
+
+/***************get promotion data*******************/
+export const getPromotion = ()=>(dispatch)=>{
+    return fetch(`${url}/promotions`)
+            .then((result)=>result.json())
+            .then((promotion)=> dispatch(
+                {type: GET_PROMOTION ,
+                promotion
+            })
+        )
+        .catch((e)=>console.log('Error: '+e));
+}
+
 
 /***************create account*******************/
 export const createAccount = (creds)=>(dispatch)=>{
@@ -45,8 +59,8 @@ export const login = (creds)=>(dispatch)=>{
 }
 
 export const getSkillsData=()=>(dispatch)=>{
-        return fetch('http://192.168.218.80:3001/skills')
-            .then((result)=>result.json())
+        return fetch(`${url}/skills`)
+          .then((result)=>result.json())
             .then((value)=>
             {   
                 console.log(value)
@@ -62,7 +76,7 @@ const addSkills=(value)=>({
 })
 
 export const getSkillsSyllabus=(courseId)=>(dispatch)=>{
-        return fetch(`http://192.168.218.80:3001/${courseId}`)
+        return fetch(`${url}/${courseId}`)
         .then((result)=>{
             // console.log(result)
             return result.json()
@@ -86,5 +100,6 @@ export const actions ={
     getSkillsSyllabus,
     login,
     logOut,
-    createAccount
+    createAccount,
+    getPromotion
 }
