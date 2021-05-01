@@ -1,12 +1,45 @@
-import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN } from "./types";
+import { GET_SKILLS_DATA, GET_SYLLABUS_DATA, GET_LOGIN, GET_LOGOUT } from "./types";
 import {auth} from "./firebase";
+
+/***************create account*******************/
+export const createAccount = (creds)=>(dispatch)=>{
+    return auth.createUserWithEmailAndPassword(creds.user, creds.pass)
+    .then((userCredential) => { 
+        var user = userCredential.user;
+        dispatch({type: GET_LOGIN ,
+            user
+        });
+        alert("Successfully created account and logged in");
+    })
+    .catch((error) => {
+        alert("Create account error: "+error.message)
+    });
+}
+
+/***************logout*******************/
+export const logOut = ()=>(dispatch)=>{
+    console.log("logging out");
+    auth.signOut().then(() => {
+        var user = {}
+        dispatch({type: GET_LOGOUT ,
+            user
+        });
+        alert("Successfully logged out")
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+
+//***************login*******************/
 export const login = (creds)=>(dispatch)=>{
     return auth.signInWithEmailAndPassword(creds.user, creds.pass)
     .then(() => {
         var user = auth.currentUser;
+
         dispatch({type: GET_LOGIN ,
                 user
         });
+        alert("Successfully logged in")
     })
     .catch(error => alert(error.message))
 }
@@ -51,5 +84,7 @@ const addSyllabus=(value)=>({
 export const actions ={
     getSkillsData,
     getSkillsSyllabus,
-    login
+    login,
+    logOut,
+    createAccount
 }

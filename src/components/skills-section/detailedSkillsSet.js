@@ -4,13 +4,13 @@ import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {object } from "prop-types";
-
 import { bindActionCreators } from "redux";
 import { actions } from "../../redux/actions";
 
 const mapStateToProps = (state)=>{
     return {
-        syllabus : state.syllabus
+        syllabus : state.syllabus,
+        user:state.user
     }
 }
 
@@ -64,7 +64,7 @@ const Syllabus = ({sylb})=>{
     )
 }
 
-const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabus}}) =>{
+const DeatiledSkill = ({SyllabusId, syllabus, user, actionsOperation:{getSkillsSyllabus}}) =>{
     useEffect(()=>{
         getSkillsSyllabus(SyllabusId)
     },[]);
@@ -110,9 +110,18 @@ const DeatiledSkill = ({SyllabusId, syllabus, actionsOperation:{getSkillsSyllabu
                             </div>
                         </div>
                         <div>
-                            <Link to={`/courseList/${SyllabusId}/introduction`} className="btn bg-primary text-white mt-2 mb-2">
-                                Enroll for free
-                            </Link>
+
+                            {
+                                (Object.keys(user).length!==0) ? 
+                                <Link to={`/courseList/${SyllabusId}/introduction`} className="btn bg-primary text-white mt-2 mb-2">
+                                Get enroll for free
+                                </Link>
+                                : 
+                                <button type="button" className="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">
+                                    Get enroll for free
+                                </button>
+                            }
+                            
                         </div>
                         
                     </div>

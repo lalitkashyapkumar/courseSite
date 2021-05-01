@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
 import { Search, LogIn} from "./nav-component";
+import { actions } from "../redux/actions";
 
 const mapStatetoProps =(state)=>{
     return {
@@ -9,8 +11,12 @@ const mapStatetoProps =(state)=>{
     }
 }
 
-const Header = ()=>{
-
+const mapDispatchtoProps=(dispatch)=>{
+    return {
+    actionsOpr : bindActionCreators(actions, dispatch)
+    }
+}
+const Header = ({user, actionsOpr:{logOut}})=>{
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -21,20 +27,28 @@ const Header = ()=>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/'>Home</Link>
+                            <Link  className="nav-link active" to='/'><span className="fa fa-home fa-lg"></span>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/about'>About</Link>
+                            <Link  className="nav-link active" to='/about'><span className="fa fa-info fa-lg"></span>About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link  className="nav-link active" to='/courseList'>Course List</Link>
+                            <Link  className="nav-link active" to='/courseList'><span className="fa fa-list fa-lg"></span>Course List</Link>
                         </li>
                     </ul>
                 </div>
                 <Search/>
-                <button type="button" className="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">
-                        login
-                </button>
+                {
+                    (Object.keys(user).length!==0) ?
+                    <button onClick={()=>{logOut()}} type="button" className="btn btn-primary ml-1">
+                        Logout
+                    </button>
+                    :
+                    <button type="button" className="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">
+                        Login
+                    </button>
+                }
+                
                 <LogIn/>
                 </div>
             </nav>
@@ -42,4 +56,4 @@ const Header = ()=>{
     );
 }
 
-export default connect(mapStatetoProps, null)(Header);
+export default connect(mapStatetoProps, mapDispatchtoProps)(Header);

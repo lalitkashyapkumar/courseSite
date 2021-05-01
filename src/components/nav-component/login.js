@@ -10,11 +10,12 @@ const mapDispatchToProps = (dispatch)=>{
   }
 }
 
-const LogIn = ({actionsOperation:{login}})=>{
+const LogIn = ({actionsOperation:{login, createAccount}})=>{
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
-    return(<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    return(
+    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
@@ -38,7 +39,7 @@ const LogIn = ({actionsOperation:{login}})=>{
         </div>
         </div>
         <div className="modal-footer">
-            <a href="#som">Create account</a>
+            <button className="btn btn-link" type="button" onClick={()=>{createAccount({user, pass}); setPass(""); setUser("");}} >Create account</button>
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
             <button onClick={()=>{login({user, pass}); setPass(""); setUser("");}} type="button" className="btn btn-primary" data-dismiss="modal">Login</button>
         </div>
