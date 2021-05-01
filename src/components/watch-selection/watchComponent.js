@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 const Watch =({SyllabusId, chapterId, syllabus, actionsOperation:{getSkillsSyllabus}})=>{
-    const [vpath, pathSetter] = useState("https://www.youtube.com/watch?v=Mf7f-xPOvwo");
+    const [vpath, pathSetter] = useState("https://youtu.be/KcjGe5a7Lwg");
     useEffect(()=>{
         getSkillsSyllabus(SyllabusId)
     },[]);
